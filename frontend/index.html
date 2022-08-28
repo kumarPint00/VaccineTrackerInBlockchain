@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccine Tracker</title>
+    <link rel="icon" href="../frontend/img/vaccine.png">
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+    <h1>Vaccine tracker Dapp </h1>
+    <div id="wallet"></div>
+    <div><h2>Register new Entity/Participant</h2></div>
+    <div>
+        <input type="text" id="userName" placeholder="Add your user name...">
+        <input type="password" name="password" id="password" placeholder="add your password...">
+        <input type="text" name="accountAddress" id="participantAddress" placeholder="paste your account address">
+        <input type="text" name="participanttype" id="participantType" placeholder="nature of participation">
+        <button type="button" class="btn_add">Register</button>
+    </div>
+
+
+    <div><h2>Register new Vaccine</h2></div>
+    <div>
+        <input type="text" name="vaccineName" id="vaccineName" placeholder="Add your vaccineName...">
+        <input type="number" name="serialNumber" id="serialNumber" placeholder="Add serialNumber...">
+        <input type="text" name="vaccineOwner" id="vaccineOwner" placeholder="Paste your account address">
+        <input type="number" name="cost" id="cost" placeholder="cost">
+        <input type="date" name="mfgTimeStamp" id="mfgTimeStamp" placeholder="Manufacturing date">
+        <button type="button" class="btn_add">Add Vaccine</button>
+    </div>
+
+    <div><h2>View participant</h2></div>
+    <div>
+        <h3>Enter the participant ID</h3>
+        <input type="text" name="participantId" id="_participantId" placeholder="Enter participant's ID here">
+        <button type="button" class="btn_view"> submit</button>
+    </div>
+
+    <div><h2>View Vaccine</h2></div>
+
+    <div> <h3> Enter the Vaccine ID</h3>
+        <input type="text" name="VaccineId" id="_vaccine_id" placeholder="Enter the vaccine ID">
+        <button type="button" class="btn_view"> submit</button>
+   
+    </div>
+
+
+    <h2>All Items</h2>
+        <div id="allItems">
+            <!-- ITEMS LOAD HERE -->
+        </div>
+        <div id="itemTemplate" style="display: none;">
+            <div class="card">
+                <div class="container">
+                    <strong>Item Name</strong>: <span class="itemName"></span><br />
+                    <strong>Item Creator</strong>: <span class="itemCreator"></span><br />
+                    <strong>Item Owner</strong>: <span class="itemOwner"></span><br />
+                    <strong>Asking Price</strong>: <span class="askingPrice"></span><br />
+                    <strong>Item Status</strong>: <span class="itemStatus"></span><br /><br />
+                    <button type="button" class="buy_btn" data-id="0">Buy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+        <!--
+        jQuery
+      -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript">
+      </script>
+      <script src="app.js"></script>
+</body>
+</html>
