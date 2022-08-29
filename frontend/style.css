@@ -43,11 +43,11 @@ input[type=date]{
     padding: 5px;
     margin-bottom: 10px;
 }
-.container{
-    padding: 3px 15px;
+ 
+.container {
+    padding: 2px 16px;
     margin: 1%;
-
-}
+  }
 h1:hover{
     color: aquamarine;
 }

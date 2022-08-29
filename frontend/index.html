@@ -14,10 +14,9 @@
     <div><h2>Register new Entity/Participant</h2></div>
     <div>
         <input type="text" id="userName" placeholder="Add your user name...">
-        <input type="password" name="password" id="password" placeholder="add your password...">
         <input type="text" name="accountAddress" id="participantAddress" placeholder="paste your account address">
         <input type="text" name="participanttype" id="participantType" placeholder="nature of participation">
-        <button type="button" class="btn_add">Register</button>
+        <button type="button" class="btn_entity_add">Register</button>
     </div>
 
 
@@ -25,49 +24,114 @@
     <div>
         <input type="text" name="vaccineName" id="vaccineName" placeholder="Add your vaccineName...">
         <input type="number" name="serialNumber" id="serialNumber" placeholder="Add serialNumber...">
-        <input type="text" name="vaccineOwner" id="vaccineOwner" placeholder="Paste your account address">
         <input type="number" name="cost" id="cost" placeholder="cost">
         <input type="date" name="mfgTimeStamp" id="mfgTimeStamp" placeholder="Manufacturing date">
-        <button type="button" class="btn_add">Add Vaccine</button>
+        <button type="button" class="btn_add_vaccine">Add Vaccine</button>
     </div>
 
     <div><h2>View participant</h2></div>
     <div>
         <h3>Enter the participant ID</h3>
         <input type="text" name="participantId" id="_participantId" placeholder="Enter participant's ID here">
-        <button type="button" class="btn_view"> submit</button>
-    </div>
-
-    <div><h2>View Vaccine</h2></div>
-
-    <div> <h3> Enter the Vaccine ID</h3>
-        <input type="text" name="VaccineId" id="_vaccine_id" placeholder="Enter the vaccine ID">
-        <button type="button" class="btn_view"> submit</button>
-   
+        <button type="button" class="btn_ParticipantView"> submit</button>
     </div>
 
 
-    <h2>All Items</h2>
-        <div id="allItems">
-            <!-- ITEMS LOAD HERE -->
+    <h2>All Participant</h2>
+        <div id="viewParticipant">
+            <!-- Participant's details here -->
         </div>
-        <div id="itemTemplate" style="display: none;">
+        <div id="viewParticipantTemplate">
             <div class="card">
                 <div class="container">
-                    <strong>Item Name</strong>: <span class="itemName"></span><br />
-                    <strong>Item Creator</strong>: <span class="itemCreator"></span><br />
-                    <strong>Item Owner</strong>: <span class="itemOwner"></span><br />
-                    <strong>Asking Price</strong>: <span class="askingPrice"></span><br />
-                    <strong>Item Status</strong>: <span class="itemStatus"></span><br /><br />
-                    <button type="button" class="buy_btn" data-id="0">Buy</button>
+                    <strong>User Name</strong>: <span class="userName"></span><br />
+                    <strong>User Address</strong>: <span class="participantAddress"></span><br />
+                    <strong>User Type</strong>: <span class="participantType"></span><br />
+                 
                 </div>
             </div>
         </div>
     </div>
 
 
+    <div><h2>View Vaccine</h2></div>
+
+    <div> <h3> Enter the Vaccine ID</h3>
+        <input type="text" name="VaccineId" id="_vaccine_id" placeholder="Enter the vaccine ID">
+        <button type="button" class="btn_view_vaccine"> submit</button>
+   
+    </div>
+    <h2>Vaccine available</h2>
+    <div id="viewVaccine">
+        <!-- Vaccine details here -->
+    </div>
+    <div id="viewVaccineTemplate">
+        <div class="card">
+            <div class="container">
+                <strong>Vaccine Name</strong>: <span class="vaccineName"></span><br />
+                <strong>Serial Number</strong>: <span class="serialNumber"></span><br />
+                <strong>Cost </strong>: <span class="cost"></span><br />
+                <strong>Date of Manufacturing </strong>: <span class="mfgTimeStamp"></span><br />
+                console.log(data1);
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- <div><h2>View Geolocation of vaccine</h2></div>
+    <div>
+        <h3>Enter the vaccine  ID</h3>
+        <input type="text" name="participantId" id="_status1" placeholder="Enter VaccineId here">
+        <button type="button" class="btn_view"> submit</button>
+    </div> -->
+
+   
+
+    <h2>View Current status of vaccine</h2>
+    <div id="viewVaccineStatus">
+        <!-- Geo location here -->
+    </div>
+    <div id="viewVaccineStatusTemplate">
+        <div class="card">
+            <div class="container">
+                <button type="button" class="btn_location">Status</button><br />
+    
+                <strong>Vaccine Status</strong>: <span class="vaccineName"></span><br />
+                <strong>Vaccine location</strong>: <span class="serialNumber"></span><br />
+                
+                
+    
+            </div>
+        </div>
+    </div>
+    </div>
+    
 
 
+
+
+
+  
+
+<h2>Geo location of the vaccine</h2>
+<div id="viewVaccine">
+    <!-- Geo location here -->
+</div>
+<div id="viewVaccineTemplate">
+    <div class="card">
+        <div class="container">
+            <button type="button" class="btn_location">Location</button><br />
+
+            <strong>Vaccine Status</strong>: <span class="vaccineName"></span><br />
+            <strong>Vaccine location</strong>: <span class="serialNumber"></span><br />
+            
+            
+
+        </div>
+    </div>
+</div>
+</div>
 
 
         <!--
