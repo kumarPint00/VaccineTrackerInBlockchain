@@ -33,21 +33,18 @@
     <div>
         <h3>Enter the participant ID</h3>
         <input type="text" name="participantId" id="_participantId" placeholder="Enter participant's ID here">
-        <button type="button" class="btn_ParticipantView"> submit</button>
+        <button type="button" onclick="btn_ParticipantView()" class="btn_ParticipantView"> submit</button>
     </div>
 
 
-    <h2>All Participant</h2>
+    <h2>Participant</h2>
         <div id="viewParticipant">
             <!-- Participant's details here -->
         </div>
         <div id="viewParticipantTemplate">
             <div class="card">
-                <div class="container">
-                    <strong>User Name</strong>: <span class="userName"></span><br />
-                    <strong>User Address</strong>: <span class="participantAddress"></span><br />
-                    <strong>User Type</strong>: <span class="participantType"></span><br />
-                 
+                <div id="myData" class="container">
+                    
                 </div>
             </div>
         </div>
@@ -67,12 +64,11 @@
     </div>
     <div id="viewVaccineTemplate">
         <div class="card">
-            <div class="container">
-                <strong>Vaccine Name</strong>: <span class="vaccineName"></span><br />
+            <div id="vaccineData" class="container">
+                <!-- <strong>Vaccine Name</strong>: <span class="vaccineName"></span><br />
                 <strong>Serial Number</strong>: <span class="serialNumber"></span><br />
                 <strong>Cost </strong>: <span class="cost"></span><br />
-                <strong>Date of Manufacturing </strong>: <span class="mfgTimeStamp"></span><br />
-                console.log(data1);
+                <strong>Date of Manufacturing </strong>: <span class="mfgTimeStamp"></span><br /> -->
 
             </div>
         </div>
@@ -94,11 +90,11 @@
     </div>
     <div id="viewVaccineStatusTemplate">
         <div class="card">
-            <div class="container">
-                <button type="button" class="btn_location">Status</button><br />
+            <div id="statusVaccine" class="container">
+                <button type="button" class="btn_Status">Status</button><br />
     
-                <strong>Vaccine Status</strong>: <span class="vaccineName"></span><br />
-                <strong>Vaccine location</strong>: <span class="serialNumber"></span><br />
+                <!-- <strong>Vaccine Status</strong>: <span class="status"></span><br /> -->
+                <!-- <strong>Vaccine location</strong>: <span class="location"></span><br /> -->
                 
                 
     
@@ -120,11 +116,11 @@
 </div>
 <div id="viewVaccineTemplate">
     <div class="card">
-        <div class="container">
+        <div id="locationData" class="container">   
             <button type="button" class="btn_location">Location</button><br />
-
+<!-- 
             <strong>Vaccine Status</strong>: <span class="vaccineName"></span><br />
-            <strong>Vaccine location</strong>: <span class="serialNumber"></span><br />
+            <strong>Vaccine location</strong>: <span class="serialNumber"></span><br /> -->
             
             
 

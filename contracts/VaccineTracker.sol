@@ -12,6 +12,7 @@ contract VaccineTracker{
         string serialNumber;
         uint256 cost;
         uint256 mfgTimeStamp;
+        Status DefaultVaccineStatus;
     }
 mapping (uint256 => vaccine) public vaccines;
 
@@ -39,10 +40,10 @@ mapping(uint256=> Transit) public transit;
         UNFIT,
         FITFORUSE
     }
-    Status public vaccineStatus;
+    Status public DefaultVaccineStatus=Status.PACKAGED;
 
 
-    event changeVaccineStatus(Status);
+    event changeDefaultVaccineStatus(Status);
     enum location{
         DELHI,
         MUMBAI,
@@ -81,6 +82,7 @@ function addVaccine(
     vaccines[vaccineId].serialNumber= _serialNumber;
     vaccines[vaccineId].cost=_vaccineCost;
     vaccines[vaccineId].mfgTimeStamp=uint256(block.timestamp);
+    vaccines[vaccineId].DefaultVaccineStatus;
     
     return vaccineId;
 }
@@ -102,39 +104,39 @@ function viewVaccine(uint256 _vaccine_id) public view returns(vaccine memory){
   function geoLocation(uint8 _status) public {
         //Functions to register the GeoLocation of vaccine in transit
         if (_status == 0) {
-            vaccineStatus = Status.PACKAGED;
+            DefaultVaccineStatus = Status.PACKAGED;
             defaultgeolocation=location.DELHI;
         } else if (_status == 1) {
-            require(vaccineStatus == Status.PACKAGED);
-            vaccineStatus = Status.APPROVED;
+            require(DefaultVaccineStatus == Status.PACKAGED);
+            DefaultVaccineStatus = Status.APPROVED;
             defaultgeolocation=location.MUMBAI;
         } else if (_status == 2) {
-            require(vaccineStatus == Status.APPROVED);
-            vaccineStatus = Status.DISPATCHED;
+            require(DefaultVaccineStatus == Status.APPROVED);
+            DefaultVaccineStatus = Status.DISPATCHED;
             defaultgeolocation=location.HYDERABAD;
         } else if (_status == 3) {
-            require(vaccineStatus == Status.DISPATCHED);
-            vaccineStatus = Status.INTRANSIT;
+            require(DefaultVaccineStatus == Status.DISPATCHED);
+            DefaultVaccineStatus = Status.INTRANSIT;
             defaultgeolocation=location.PUNE;
         } else if (_status == 4) {
-            require(vaccineStatus == Status.INTRANSIT);
-            vaccineStatus = Status.UNFIT;
+            require(DefaultVaccineStatus == Status.INTRANSIT);
+            DefaultVaccineStatus = Status.UNFIT;
             defaultgeolocation=location.CHENNAI;
         } else if (_status == 5) {
-            require(vaccineStatus == Status.UNFIT);
-            vaccineStatus = Status.FITFORUSE;
+            require(DefaultVaccineStatus == Status.UNFIT);
+            DefaultVaccineStatus = Status.FITFORUSE;
             defaultgeolocation=location.CHENNAI;
         }
 
-        emit changeVaccineStatus(vaccineStatus);
+        emit changeDefaultVaccineStatus(DefaultVaccineStatus);
         emit changeGeoLocation(defaultgeolocation);
     }
 function currentgeoLocation()public view returns(Status,location){
-    return (vaccineStatus,defaultgeolocation);
+    return (DefaultVaccineStatus,defaultgeolocation);
 }
-function currentvaccineStatus() public view returns(Status) {
+function currentDefaultVaccineStatus() public view returns(Status) {
         //track vaccine status
-        return vaccineStatus;
+        return DefaultVaccineStatus;
     }
 
 
@@ -152,23 +154,23 @@ function currentvaccineStatus() public view returns(Status) {
 
 // function administerOfvaccine(uint256 _status) public returns(string memory){
 //     if (_status==0) {
-//     vaccineStatus=Status.PACKAGED;
+//     DefaultVaccineStatus=Status.PACKAGED;
 //     currentOwner=="Manufacturer";
 //     }
 //     else if (_status==1){
-//         vaccineStatus=Status.APPROVED;
+//         DefaultVaccineStatus=Status.APPROVED;
 //         currentOwner="Supplier";
 //     }else if (_status==2){
-//         vaccineStatus=Status.DISPATCHED;
+//         DefaultVaccineStatus=Status.DISPATCHED;
 //         currentOwner="Logistics";
 //     }else if (_status==3){
-//         vaccineStatus=Status.INTRANSIT;
+//         DefaultVaccineStatus=Status.INTRANSIT;
 //         currentOwner="Distributor";
 //     }else if (_status==4){
-//         vaccineStatus=Status.FITFORUSE;
+//         DefaultVaccineStatus=Status.FITFORUSE;
 //         currentOwner="Hospital";
 //     }else if (_status==5){
-//         vaccineStatus=Status.UNFIT;
+//         DefaultVaccineStatus=Status.UNFIT;
 //         currentOwner="Hospital";
 //     }
 //     return currentOwner;
@@ -176,7 +178,7 @@ function currentvaccineStatus() public view returns(Status) {
 // }
 
 
-// function currentVaccineStatus(uint256 _vaccine_id) public view returns(){
+// function currentDefaultVaccineStatus(uint256 _vaccine_id) public view returns(){
 
 // }
 }
